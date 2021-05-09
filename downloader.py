@@ -1,6 +1,7 @@
 import requests
 import urllib.request
 import os
+import shutil
 
 from definitions import ROOT_DIR
 
@@ -40,7 +41,7 @@ def download_driver(url):
 
     # Remove old directory & file, recreate if
     try:
-        os.rmdir(path)
+        shutil.rmtree(path)
     except FileNotFoundError:
         print('Driver directory not found - skipping deletion...')
 
