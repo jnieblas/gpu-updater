@@ -39,7 +39,7 @@ def download_driver(url):
     path = ROOT_DIR + '/tmp'
     file_name = url[[index for index, char in enumerate(url) if char == '/'][4] + 1:]
 
-    # Remove old directory & file, recreate if
+    # Remove old directory & file
     try:
         shutil.rmtree(path)
     except FileNotFoundError:
@@ -48,6 +48,7 @@ def download_driver(url):
     print('Creating driver directory at path: ' + path)
     os.mkdir(path)
 
+    # Build file path, retrieve URL & download to file path
     file_path = '{path}/{file_name}'.format(path=path, file_name=file_name)
     print('Downloading file at path: ' + file_path)
     urllib.request.urlretrieve(url, file_path)
