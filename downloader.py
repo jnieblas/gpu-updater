@@ -8,6 +8,7 @@ from definitions import ROOT_DIR
 rtx_20_series_id = 107
 rtx_2070_super_id = 903
 windows_10_64_id = 57
+windows_11_64_id = 135
 
 
 def get_download_url(ps_id, pf_id, os_id, language_code=1033):
@@ -56,7 +57,7 @@ def download_driver(url):
 
 
 if __name__ == "__main__":
-    download_url = get_download_url(rtx_20_series_id, rtx_2070_super_id, windows_10_64_id)
+    download_url = get_download_url(rtx_20_series_id, rtx_2070_super_id, windows_11_64_id)
 
     download_driver(download_url)
 
