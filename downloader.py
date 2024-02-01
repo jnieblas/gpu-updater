@@ -2,6 +2,7 @@ import requests
 import urllib.request
 import os
 import shutil
+import subprocess
 
 from definitions import ROOT_DIR
 
@@ -55,11 +56,21 @@ def download_driver(url):
     urllib.request.urlretrieve(url, file_path)
     print('Download Complete!')
 
+def execute_driver():
+    os.chdir(ROOT_DIR + '/tmp')
+    files = os.listdir()
+    driver = next((file for file in files if file.lower().endswith('.exe')), None)
+
+    if driver:
+        driver_path = os.path.abspath(driver)
+        subprocess.run(['runas', '/user:Administrator', driver_path], bufsize=0)
+    else:
+        print("Unable to run executable file.")
+
 
 if __name__ == "__main__":
     download_url = get_download_url(rtx_20_series_id, rtx_2070_super_id, windows_11_64_id)
-
     download_driver(download_url)
-
+    execute_driver()
 
 
