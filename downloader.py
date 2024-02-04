@@ -63,7 +63,7 @@ def execute_driver():
 
     if driver:
         driver_path = os.path.abspath(driver)
-        subprocess.run(['runas', '/user:Administrator', driver_path], bufsize=0)
+        subprocess.run(driver_path)
     else:
         print("Unable to run executable file.")
 

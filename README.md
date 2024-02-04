@@ -3,6 +3,11 @@ Command line app
 
 Running downloader.py contacts Nvidia, then downloads file by GPU Family, specific card in family, & OS. Basic implementation downloads the latest driver for GTX 2070 Super for Windows.
 
+## To Run
+1. Open terminal as administrator
+2. `python downloader.py`
+
+
 ### ToDos
 * [ ] Reject download if same version already exists locally
 * [ ] Create simple CLI
